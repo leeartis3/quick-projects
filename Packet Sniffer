@@ -1,0 +1,10 @@
+from scapy.all import *
+                           
+def do_work(pkt):
+	#pkt.show()
+	print(pkt[IP].dst, pkt[IP].src)
+	
+def main():
+	sniff(iface="enp0s3", prn=do_work, filter="tcp", store=0, count=100)
+
+main()
